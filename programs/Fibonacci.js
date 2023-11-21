@@ -1,4 +1,4 @@
-//Fibonacci Array
+// Fibonacci Array
 // Big-O(n)
 function fibonacci(n) {
   const fib = [0, 1];
