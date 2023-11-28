@@ -104,6 +104,23 @@ class LinkedList {
     }
   }
 
+  search(data) {
+    if (this.isEmpty()) {
+      return -1;
+    }
+    let i = 0;
+    let curr = this.head;
+    while (curr) {
+      if (curr.data === data) {
+        return i;
+      }
+      curr = curr.next;
+      i++;
+    }
+
+    return -1;
+  }
+
   isEmpty() {
     return this.size === 0;
   }
@@ -160,3 +177,11 @@ console.log(list.getSize);
 
 console.log(list.removeByData(100));
 list.print();
+
+list.append(30);
+list.append(60);
+list.print();
+
+console.log(list.search(30));
+console.log(list.search(60));
+console.log(list.search(600));
