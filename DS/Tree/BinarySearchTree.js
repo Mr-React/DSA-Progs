@@ -50,6 +50,17 @@ class BinarySearchTree {
     }
   }
 
+  //DFS preorder travseral
+  preOrder(root) {
+    if (root) {
+      console.log(root.value);
+      this.preOrder(root.left);
+      this.preOrder(root.right);
+    }
+
+    return;
+  }
+
   isEmpty() {
     return this.root === null;
   }
@@ -63,7 +74,12 @@ console.log("Insert elements 10,5,15");
 bst.insert(10);
 bst.insert(5);
 bst.insert(15);
+bst.insert(3);
+bst.insert(7);
 
 console.log("Search element(5,15,100) in tree exist or not");
 console.log(bst.search(bst.root, 5));
 console.log(bst.search(bst.root, 100));
+
+console.log("Traverse tree using DFS->preOrder way");
+bst.preOrder(bst.root);
