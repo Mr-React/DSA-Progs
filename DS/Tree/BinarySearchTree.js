@@ -83,6 +83,34 @@ class BinarySearchTree {
     return;
   }
 
+  //BFS traversal
+  levelOrder() {
+    //Create Queue
+    const queue = [];
+
+    //Enqueue the root node
+    queue.push(this.root);
+
+    //As long as node exist in queue do following
+    while (queue.length) {
+      //Dequeue the node from the front of queue
+      let curr = queue.shift();
+
+      //Read node's value
+      console.log(curr.value);
+
+      //Enqueue the node's left child if it exist
+      if (curr.left) {
+        queue.push(curr.left);
+      }
+
+      //Enqueue the node's right child if it exist
+      if (curr.right) {
+        queue.push(curr.right);
+      }
+    }
+  }
+
   isEmpty() {
     return this.root === null;
   }
@@ -111,3 +139,6 @@ bst.inOrder(bst.root);
 
 console.log("Traverse tree using DFS->postOrder way");
 bst.postOrder(bst.root);
+
+console.log("Traverse tree using BFS");
+bst.levelOrder();
