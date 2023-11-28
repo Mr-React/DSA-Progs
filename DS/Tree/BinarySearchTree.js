@@ -111,6 +111,22 @@ class BinarySearchTree {
     }
   }
 
+  min(root) {
+    if (!root.left) {
+      return root.value;
+    } else {
+      return this.min(root.left);
+    }
+  }
+
+  max(root) {
+    if (!root.right) {
+      return root.value;
+    } else {
+      return this.max(root.right);
+    }
+  }
+
   isEmpty() {
     return this.root === null;
   }
@@ -142,3 +158,9 @@ bst.postOrder(bst.root);
 
 console.log("Traverse tree using BFS");
 bst.levelOrder();
+
+console.log("Minimum value in tree");
+console.log(bst.min(bst.root));
+
+console.log("Maximum value in tree");
+console.log(bst.max(bst.root));
