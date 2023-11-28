@@ -61,6 +61,16 @@ class BinarySearchTree {
     return;
   }
 
+  //DFS inOrder traversal
+  inOrder(root) {
+    if (root) {
+      this.inOrder(root.left);
+      console.log(root.value);
+      this.inOrder(root.right);
+    }
+    return;
+  }
+
   isEmpty() {
     return this.root === null;
   }
@@ -83,3 +93,9 @@ console.log(bst.search(bst.root, 100));
 
 console.log("Traverse tree using DFS->preOrder way");
 bst.preOrder(bst.root);
+
+console.log("Traverse tree using DFS->inOrder way");
+bst.inOrder(bst.root);
+
+// console.log("Traverse tree using DFS->preOrder way");
+// bst.preOrder(bst.root);
