@@ -34,6 +34,11 @@ class Graph {
       this.adjancencyList[vertex2].has(vertex1)
     );
   }
+
+  removeEdge(vertex1, vertex2) {
+    this.adjancencyList[vertex1].delete(vertex2);
+    this.adjancencyList[vertex2].delete(vertex1);
+  }
 }
 
 const graph = new Graph();
@@ -55,3 +60,9 @@ graph.display();
 
 console.log("hasEdge between A & B?: ", graph.hasEdge("A", "B"));
 console.log("hasEdge between A & C?: ", graph.hasEdge("A", "C"));
+
+console.log("");
+graph.display();
+console.log("Remove edge between A to B");
+graph.removeEdge("A", "B");
+graph.display();
