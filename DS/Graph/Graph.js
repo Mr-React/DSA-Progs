@@ -39,6 +39,18 @@ class Graph {
     this.adjancencyList[vertex1].delete(vertex2);
     this.adjancencyList[vertex2].delete(vertex1);
   }
+
+  removeVertex(vertex) {
+    if (!this.adjancencyList[vertex]) {
+      return;
+    }
+
+    for (let adjancencyVertex of this.adjancencyList[vertex]) {
+      this.removeEdge(vertex, adjancencyVertex);
+    }
+
+    delete this.adjancencyList[vertex];
+  }
 }
 
 const graph = new Graph();
@@ -65,4 +77,10 @@ console.log("");
 graph.display();
 console.log("Remove edge between A to B");
 graph.removeEdge("A", "B");
+graph.display();
+
+console.log("");
+graph.display();
+console.log("Remove vertex C");
+graph.removeVertex("C");
 graph.display();
